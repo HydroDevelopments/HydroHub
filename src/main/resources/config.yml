@@ -26,3 +26,11 @@ welcomeSub: '&eTo &cHydro&9MC&e. We hope you enjoy your stay.'
 joinMsg: "&6%player_name%, Welcome to &bHydro&9MC&6!
 \nThis is currently the pre-release state, so please
 \nalert us of &lANY &cbugs&6 found!"
+
+
+# ############
+# Scoreboard!
+# ############
+
+# This is the scoreboard title, which would receive the animation.
+objTitle: "HydroMC"
