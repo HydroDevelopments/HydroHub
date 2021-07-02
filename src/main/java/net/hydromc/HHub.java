@@ -3,6 +3,7 @@ package net.hydromc;
 import net.hydromc.commands.ReloadCommand;
 import net.hydromc.feature.MOTDMessage;
 import net.hydromc.feature.ScoreboardA;
+import net.hydromc.gui.ServerSelectorGUI;
 import net.hydromc.onJoin.HubItems;
 import net.hydromc.onJoin.JoinMessage;
 import net.hydromc.onJoin.JoinTitle;
@@ -22,15 +23,20 @@ public final class HHub extends JavaPlugin implements Listener {
 
     public static String pluginPrefix;
 
+    public static String noPermission;
+
 
     public HHub() {
+
+        noPermission = "&cYou Have No Permissions To Do This!";
 
         // Admin Permissions!
         this.permission = new Permission("hhub.admin.reload");
 
 
         // Member Permissions!
-        // None yet. This is for spacing.
+        this.permission = new Permission("hhub.member.basic.servers");
+        this.permission = new Permission("HHub.member.basic.gui.joinServers");
 
 
         // Pulling From Config
@@ -49,6 +55,8 @@ public final class HHub extends JavaPlugin implements Listener {
 
         // Command Registering Here
         Objects.requireNonNull(getCommand("hhubreload")).setExecutor((new ReloadCommand(this)));
+
+        Objects.requireNonNull(getCommand("servers")).setExecutor((new ServerSelectorGUI(this)));
 
 
         // Event Registering Goes Here!

@@ -1,8 +1,10 @@
 net\hydromc\HHub.class
 net\hydromc\onJoin\JoinMessage.class
 net\hydromc\feature\ScoreboardA$1.class
+net\hydromc\clickEvents\HubItemsClickEvent.class
 net\hydromc\onJoin\HubItems.class
 net\hydromc\feature\ScoreboardA.class
 net\hydromc\commands\ReloadCommand.class
+net\hydromc\gui\ServerSelectorGUI.class
 net\hydromc\onJoin\JoinTitle.class
 net\hydromc\feature\MOTDMessage.class
