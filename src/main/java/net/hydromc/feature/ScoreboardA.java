@@ -1,11 +1,13 @@
 package net.hydromc.feature;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.hydromc.HHub;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
 
@@ -20,15 +22,31 @@ public class ScoreboardA implements Listener {
     @EventHandler
     public void joinServer(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+
+        // String + PAPI Intergration!
+        String disName = format("Name: &e%player_name%");
+        disName = PlaceholderAPI.setPlaceholders(player, disName);
+
+
+        String space1 = " ";
+        String space2 = "";
+        String space3 = "&r";
+
         ScoreboardManager scoreboardManager = plugin.getServer().getScoreboardManager();
         Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
+
         Objective objective = scoreboard.registerNewObjective("Test", "Dummy");
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        Team health = scoreboard.registerNewTeam("health");
-        health.addEntry("Health: §b");
-        health.setSuffix("");
-        health.setPrefix("");
-        objective.getScore("Health: §b").setScore(0);
+
+        Score score1 = objective.getScore(space1);
+        score1.setScore(5);
+
+        Score score2 = objective.getScore(disName);
+        score2.setScore(4);
+
+        Score score3 = objective.getScore(space2);
+        score3.setScore(3);
+
         String title = format(plugin.getConfig().getString("objTitle"));
         char[] split = Objects.requireNonNull(title).toCharArray();
 
@@ -48,7 +66,6 @@ public class ScoreboardA implements Listener {
 
                     finaltitle +=   letter;
                     objective.setDisplayName(finaltitle);
-                    health.setSuffix(counter + "");
                 }else{
                     String space = "";
                     finaltitle = "";
