@@ -1,0 +1,13 @@
+name: HydroHub
+version: 1.0
+main: net.hydromc.HHub
+api-version: 1.17
+prefix: -HydroHub-
+softdepend:
+  - 'PlaceholderAPI'
+description: This Is The Hub Manager For HydroMC
+commands:
+  hhubreload:
+    description: This Is The Command To Reload HHub!
+    usage: /<command>
+    permission: hhub.admin.reload
