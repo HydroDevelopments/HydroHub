@@ -3,6 +3,7 @@ package net.hydromc.gui;
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.*;
 import net.hydromc.HHub;
+import net.hydromc.clickEvents.HubItemsClickEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -64,9 +65,9 @@ public class ServerSelectorGUI implements CommandExecutor {
 
         // Set GUI Items Here
 
-        sGui.setItem(2, 4, s1);
+        sGui.setItem(2, 3, s1);
         sGui.setItem(2, 5, s2);
-        sGui.setItem(2, 6, s3);
+        sGui.setItem(2, 7, s3);
 
 
             // Actual Command Execution Handling.
@@ -75,6 +76,7 @@ public class ServerSelectorGUI implements CommandExecutor {
                 if (player.hasPermission("hhub.member.basic.servers")) {
                     if (cmd.getName().equalsIgnoreCase("servers")) {
                         sGui.open(player);
+                        return true;
                     }
                 }
             sender.sendMessage(format(noPermission));

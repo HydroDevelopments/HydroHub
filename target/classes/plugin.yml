@@ -11,3 +11,7 @@ commands:
     description: This Is The Command To Reload HHub!
     usage: /<command>
     permission: hhub.admin.reload
+  servers:
+    description: This is the command to bring up the server selector.
+    usage: /<command>
+    permission: hhub.member.basic.servers

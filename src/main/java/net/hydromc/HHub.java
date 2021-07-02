@@ -1,5 +1,6 @@
 package net.hydromc;
 
+import net.hydromc.clickEvents.HubItemsClickEvent;
 import net.hydromc.commands.ReloadCommand;
 import net.hydromc.feature.MOTDMessage;
 import net.hydromc.feature.ScoreboardA;
@@ -66,6 +67,7 @@ public final class HHub extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new JoinTitle(this), this);
         pluginManager.registerEvents(new MOTDMessage(this), this);
         pluginManager.registerEvents(new ScoreboardA(this), this);
+        pluginManager.registerEvents(new HubItemsClickEvent(this), this);
 
 
         // Config Things.
