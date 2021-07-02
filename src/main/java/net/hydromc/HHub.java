@@ -1,5 +1,6 @@
 package net.hydromc;
 
+import net.hydromc.commands.ReloadCommand;
 import net.hydromc.feature.MOTDMessage;
 import net.hydromc.feature.ScoreboardA;
 import net.hydromc.onJoin.HubItems;
@@ -12,6 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class HHub extends JavaPlugin implements Listener {
 
@@ -45,7 +48,7 @@ public final class HHub extends JavaPlugin implements Listener {
 
 
         // Command Registering Here
-        //Objects.requireNonNull(getCommand("whatever")).setExecutor((new yes()));
+        Objects.requireNonNull(getCommand("hhubreload")).setExecutor((new ReloadCommand(this)));
 
 
         // Event Registering Goes Here!
@@ -71,35 +74,6 @@ public final class HHub extends JavaPlugin implements Listener {
     public void onDisable() {
         // Plugin shutdown logic
         getLogger().info("Has Been Disabled, Goodbye :(");
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-
-        if(cmd.getName().equalsIgnoreCase("hhubreload")) {
-
-            if(sender.hasPermission("hhub.admin.reload")) {
-
-                this.saveDefaultConfig();
-                this.reloadConfig();
-                getConfig().options().copyDefaults();
-                saveDefaultConfig();
-
-                sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded."));
-                return true;
-
-            } else {
-
-                sender.sendMessage(format(pluginPrefix + "&cYou Have No Permissions Todo This."));
-                return true;
-
-            }
-        }
-        return true;
-    }
-
-    private String format(String msg) {
-        return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
 }
