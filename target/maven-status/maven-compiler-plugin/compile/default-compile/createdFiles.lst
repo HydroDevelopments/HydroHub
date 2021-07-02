@@ -1,0 +1,5 @@
+net\hydromc\HHub.class
+net\hydromc\onJoin\JoinMessage.class
+net\hydromc\onJoin\HubItems.class
+net\hydromc\onJoin\JoinTitle.class
+net\hydromc\feature\MOTDMessage.class
