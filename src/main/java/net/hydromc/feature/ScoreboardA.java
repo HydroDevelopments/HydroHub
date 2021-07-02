@@ -59,7 +59,7 @@ public class ScoreboardA implements Listener {
                     counter = 0;
                 }
             }
-        }.runTaskTimer(plugin, 0, 4);
+        }.runTaskTimer(plugin, 0, 8);
 
         player.setScoreboard(scoreboard);
     }
