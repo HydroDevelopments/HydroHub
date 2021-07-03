@@ -3,7 +3,6 @@ package net.hydromc.gui;
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.*;
 import net.hydromc.HHub;
-import net.hydromc.clickEvents.HubItemsClickEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
