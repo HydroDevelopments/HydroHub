@@ -7,7 +7,6 @@ net\hydromc\onJoin\HubItems.class
 net\hydromc\gui\ServerSelectorGUI.class
 net\hydromc\onJoin\JoinTitle.class
 net\hydromc\feature\MOTDMessage.class
-net\hydromc\feature\SpawnTeleportEvent.class
 net\hydromc\feature\ScoreboardA$1.class
 net\hydromc\commands\SetSpawnCommand.class
 net\hydromc\feature\ScoreboardA.class

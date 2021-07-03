@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -52,7 +53,12 @@ public class HubItems implements Listener {
 
     @EventHandler
     public void onDrop(PlayerDropItemEvent e) {
-        e.setCancelled(true);
+        Player p = e.getPlayer();
+        if(!p.isOp()) {
+            e.setCancelled(true);
+        } else if(p.isOp()) {
+            e.setCancelled(false);
+        }
     }
 
     @EventHandler
