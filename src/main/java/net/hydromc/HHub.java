@@ -5,6 +5,7 @@ import net.hydromc.commands.ReloadCommand;
 import net.hydromc.commands.SetSpawnCommand;
 import net.hydromc.commands.SetVoidCommand;
 import net.hydromc.commands.SpawnCommand;
+import net.hydromc.feature.BoostPads;
 import net.hydromc.feature.MOTDMessage;
 import net.hydromc.feature.ScoreboardA;
 import net.hydromc.feature.VoidTeleport;
@@ -92,6 +93,7 @@ public final class HHub extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new HubItemsClickEvent(this), this);
         pluginManager.registerEvents(new VoidTeleport(this), this);
         pluginManager.registerEvents(new SetSpawnCommand(this), this);
+        pluginManager.registerEvents(new BoostPads(this), this);
 
 
         // Config Things.
