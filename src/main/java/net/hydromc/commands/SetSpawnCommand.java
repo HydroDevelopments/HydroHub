@@ -19,26 +19,6 @@ public class SetSpawnCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
-    @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
-        Player player = e.getPlayer();
-        if(!plugin.getConfig().getBoolean("tpOnJoin")) {
-            plugin.getLogger().info("tpOnJoin Not Enabled. This is a debug message.");
-        } else if(plugin.getConfig().getBoolean("tpOnJoin")) {
-            player.teleport(player.getWorld().getSpawnLocation());
-        }
-    }
-
-    @EventHandler
-    public void onRespawn(PlayerRespawnEvent e) {
-        Player player = e.getPlayer();
-        if(!plugin.getConfig().getBoolean("tpOnRespawn")) {
-            plugin.getLogger().info("tpOnRespawn Not Enabled. This is a debug message.");
-        } else if(plugin.getConfig().getBoolean("tpOnRespawn")) {
-            player.teleport(player.getWorld().getSpawnLocation());
-        }
-    }
-
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
         if (cmd.getName().equalsIgnoreCase("setspawn")) {
