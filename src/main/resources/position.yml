@@ -5,10 +5,7 @@
 # ALL ARE DISABLED BY DEFAULT TO AVOID UNWANTED SPAWN LOCATION CHANGES AND TO AVOID INACCURATE VOID TP LOCATIONS.
 
 setSpawnEnabled: false
-spawnLocationX: "0"
-spawnLocationY: "0"
-spawnLocationZ: "0"
-
+teleportSpawnOnJoin: false
 
 voidTPEnabled: false
-voidTPLocationY: "0"
+voidTPLocationY: 0
