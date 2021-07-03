@@ -67,6 +67,11 @@ public class HubItems implements Listener {
     }
 
     @EventHandler
+    public void onInvMove(InventoryMoveItemEvent e) {
+        e.setCancelled(true);
+    }
+
+    @EventHandler
     public void onDeath(PlayerRespawnEvent e) {
         items(e.getPlayer());
     }

@@ -8,15 +8,28 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 import static net.hydromc.HHub.pluginPrefix;
 
-public class SetSpawnCommand implements CommandExecutor {
+public class SetSpawnCommand implements CommandExecutor, Listener {
     private HHub plugin;
     public SetSpawnCommand(HHub plugin){
         this.plugin = plugin;
+    }
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        player.teleport(player.getWorld().getSpawnLocation());
+    }
+
+    @EventHandler
+    public void onJoin(PlayerRespawnEvent e) {
+        Player player = e.getPlayer();
+        player.teleport(player.getWorld().getSpawnLocation());
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -26,6 +39,9 @@ public class SetSpawnCommand implements CommandExecutor {
             if (sender.hasPermission("hhub.admin.spawn.set")) {
                 Player p = (Player) sender;
                 Location loc = p.getLocation();
+
+                p.getLocation().getYaw();
+                p.getLocation().getPitch();
 
                 p.getWorld().setSpawnLocation(loc);
 

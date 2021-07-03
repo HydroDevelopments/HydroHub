@@ -22,7 +22,7 @@ public class ServerSelectorGUI implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
-        String permission = "hhub.member.basic.gui.join";
+        String permission = "hhub.member.basic.gui.joinServers";
 
         // This is the main gui
         Gui sGui = new Gui(3, format("&8Server Selector")); sGui.setDefaultClickAction(event -> { event.setCancelled(true); });

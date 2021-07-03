@@ -83,6 +83,7 @@ public final class HHub extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new ScoreboardA(this), this);
         pluginManager.registerEvents(new HubItemsClickEvent(this), this);
         pluginManager.registerEvents(new VoidTeleport(this), this);
+        pluginManager.registerEvents(new SetSpawnCommand(this), this);
 
 
         // Config Things.
