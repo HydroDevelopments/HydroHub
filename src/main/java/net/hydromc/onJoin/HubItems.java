@@ -7,10 +7,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -51,16 +53,26 @@ public class HubItems implements Listener {
 
     @EventHandler
     public void onDrop(PlayerDropItemEvent e) {
-        Player p = e.getPlayer();
-        if(!p.isOp()) {
+        Player player = e.getPlayer();
+        if(!player.isOp()) {
             e.setCancelled(true);
-        } else if(p.isOp()) {
+        } else {
             e.setCancelled(false);
         }
     }
 
     @EventHandler
-    public void onInvMove(InventoryClickEvent e) {
+    public void onOffHandMove(PlayerSwapHandItemsEvent e) {
+        Player p = e.getPlayer();
+        if(!p.isOp()) {
+            e.setCancelled(true);
+        } else {
+            e.setCancelled(false);
+        }
+    }
+
+    @EventHandler
+    public void onInvClick(InventoryClickEvent e) {
         e.setCancelled(true);
     }
 
