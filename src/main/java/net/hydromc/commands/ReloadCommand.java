@@ -29,7 +29,6 @@ public class ReloadCommand implements CommandExecutor {
 
                 // Pos Config
                 plugin.getLogger().info("Reloading position.yml...");
-                plugin.savePosConfig();
                 plugin.reloadPosConfig();
                 plugin.getLogger().info("Reloaded position.yml!");
 
