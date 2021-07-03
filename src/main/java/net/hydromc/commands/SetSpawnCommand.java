@@ -7,6 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 import static net.hydromc.HHub.pluginPrefix;
 
@@ -14,6 +17,26 @@ public class SetSpawnCommand implements CommandExecutor {
     private HHub plugin;
     public SetSpawnCommand(HHub plugin){
         this.plugin = plugin;
+    }
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+        Player player = e.getPlayer();
+        if(!plugin.getConfig().getBoolean("tpOnJoin")) {
+            plugin.getLogger().info("tpOnJoin Not Enabled. This is a debug message.");
+        } else if(plugin.getConfig().getBoolean("tpOnJoin")) {
+            player.teleport(player.getWorld().getSpawnLocation());
+        }
+    }
+
+    @EventHandler
+    public void onRespawn(PlayerRespawnEvent e) {
+        Player player = e.getPlayer();
+        if(!plugin.getConfig().getBoolean("tpOnRespawn")) {
+            plugin.getLogger().info("tpOnRespawn Not Enabled. This is a debug message.");
+        } else if(plugin.getConfig().getBoolean("tpOnRespawn")) {
+            player.teleport(player.getWorld().getSpawnLocation());
+        }
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

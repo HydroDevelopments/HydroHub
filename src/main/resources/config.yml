@@ -17,6 +17,11 @@ motdMsg: "                 -> &3Hydro&1&lMC &r<-&r\n                &k!&r &e&lCo
 # onJoin Events!
 # ###############
 
+# Teleport To Spawn onJoin
+tpOnJoin: true # true / false
+# Teleport To Spawn onRespawn
+tpOnRespawn: true # true / false
+
 # Welcome Message
 welcomeTitle: '&6Welcome, %player_name%'
 
