@@ -1,3 +1,4 @@
+net\hydromc\commands\SpawnCommand$1.class
 net\hydromc\feature\VoidTeleport.class
 net\hydromc\HHub.class
 net\hydromc\onJoin\JoinMessage.class
@@ -6,7 +7,9 @@ net\hydromc\commands\SetVoidCommand.class
 net\hydromc\onJoin\HubItems.class
 net\hydromc\gui\ServerSelectorGUI.class
 net\hydromc\onJoin\JoinTitle.class
+net\hydromc\feature\BoostPads.class
 net\hydromc\feature\MOTDMessage.class
+net\hydromc\commands\SpawnCommand.class
 net\hydromc\feature\ScoreboardA$1.class
 net\hydromc\commands\SetSpawnCommand.class
 net\hydromc\feature\ScoreboardA.class

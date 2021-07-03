@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,12 +39,15 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
 
             if (sender.hasPermission("hhub.admin.spawn.set")) {
                 Player p = (Player) sender;
-                Location loc = p.getLocation();
 
-                p.getLocation().getYaw();
-                p.getLocation().getPitch();
+                FileConfiguration c = plugin.getPosConfig();
 
-                p.getWorld().setSpawnLocation(loc);
+                c.set("spawnPosX", p.getLocation().getX());
+                c.set("spawnPosY", p.getLocation().getY());
+                c.set("spawnPosZ", p.getLocation().getZ());
+
+                c.set("spawnYaw", p.getLocation().getYaw());
+                c.set("spawnPitch", p.getLocation().getPitch());
 
                 p.sendMessage(format(pluginPrefix + "&eYou have set the world spawn to: &f " +p.getWorld().getSpawnLocation()));
             }

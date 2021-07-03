@@ -22,4 +22,10 @@ commands:
   setspawn:
     description: Sets the worlds spawn to where you are!
     usage: /<command>
+    aliases: ['spawnpoint', 'setworldspawn']
     permission: hhub.admin.spawn.set
+  spawn:
+    description: Teleports you to the worlds spawn.
+    usage: /<command>
+    aliases: ['lobby']
+    permission: hhub.member.basic.commands.spawn

@@ -7,5 +7,12 @@
 setSpawnEnabled: false
 teleportSpawnOnJoin: false
 
+spawnPosX: 0
+spawnPosY: 0
+spawnPosZ: 0
+
+spawnYaw: 0
+spawnPitch: 0
+
 voidTPEnabled: false
 voidTPLocationY: 0

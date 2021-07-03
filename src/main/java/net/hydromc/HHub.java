@@ -4,6 +4,7 @@ import net.hydromc.clickEvents.HubItemsClickEvent;
 import net.hydromc.commands.ReloadCommand;
 import net.hydromc.commands.SetSpawnCommand;
 import net.hydromc.commands.SetVoidCommand;
+import net.hydromc.commands.SpawnCommand;
 import net.hydromc.feature.MOTDMessage;
 import net.hydromc.feature.ScoreboardA;
 import net.hydromc.feature.VoidTeleport;
@@ -41,13 +42,18 @@ public final class HHub extends JavaPlugin implements Listener {
 
         // Admin Permissions!
         this.permission = new Permission("hhub.admin.reload");
+
         this.permission = new Permission("hhub.admin.features.voidtp");
+
         this.permission = new Permission("hhub.admin.spawn.set");
 
 
         // Member Permissions!
         this.permission = new Permission("hhub.member.basic.servers");
+
         this.permission = new Permission("HHub.member.basic.gui.joinServers");
+
+        this.permission = new Permission("hhub.member.basic.commands.spawn");
 
 
         // Pulling From Config
@@ -72,6 +78,8 @@ public final class HHub extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("setvoidtp")).setExecutor((new SetVoidCommand(this)));
 
         Objects.requireNonNull(getCommand("setspawn")).setExecutor((new SetSpawnCommand(this)));
+
+        Objects.requireNonNull(getCommand("spawn")).setExecutor((new SpawnCommand(this)));
 
 
         // Event Registering Goes Here!
