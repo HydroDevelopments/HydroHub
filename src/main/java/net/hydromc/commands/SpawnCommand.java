@@ -3,6 +3,7 @@ package net.hydromc.commands;
 import net.hydromc.HHub;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,20 +28,13 @@ public class SpawnCommand implements CommandExecutor, Listener {
             if (sender.hasPermission("hhub.member.basic.commands.spawn")) {
                 Player p = (Player) sender;
 
-                Double x = plugin.getPosConfig().getDouble("spawnPosX");
-                Double y = plugin.getPosConfig().getDouble("spawnPosY");
-                Double z = plugin.getPosConfig().getDouble("spawnPosZ");
-
-                Float yaw = (Float) plugin.getConfig().get("spawnYaw");
-                Float pitch = (Float) plugin.getConfig().get("spawnPitch");
-
-                p.sendMessage(format(pluginPrefix + "&cYou will be teleported to spawn in 5 seconds."));
+                p.sendMessage(format(pluginPrefix + "&cYou will be teleported to spawn in 5 seconds. You are allowed to move."));
 
                 plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 
                     @Override
                     public void run() {
-                        p.teleport(new Location(p.getWorld(), x, y, z, yaw, pitch));
+                        p.teleport(p.getWorld().getSpawnLocation());
                     }
 
                 }, 20*5);

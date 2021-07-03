@@ -3,6 +3,7 @@ package net.hydromc.commands;
 import net.hydromc.HHub;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -39,15 +40,9 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
 
             if (sender.hasPermission("hhub.admin.spawn.set")) {
                 Player p = (Player) sender;
+                Location loc = p.getLocation();
 
-                FileConfiguration c = plugin.getPosConfig();
-
-                c.set("spawnPosX", p.getLocation().getX());
-                c.set("spawnPosY", p.getLocation().getY());
-                c.set("spawnPosZ", p.getLocation().getZ());
-
-                c.set("spawnYaw", p.getLocation().getYaw());
-                c.set("spawnPitch", p.getLocation().getPitch());
+                p.getWorld().setSpawnLocation(loc);
 
                 p.sendMessage(format(pluginPrefix + "&eYou have set the world spawn to: &f " +p.getWorld().getSpawnLocation()));
             }

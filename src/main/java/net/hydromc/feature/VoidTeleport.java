@@ -3,6 +3,7 @@ package net.hydromc.feature;
 import net.hydromc.HHub;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,9 @@ public class VoidTeleport implements Listener {
         Location loc = p.getLocation();
 
         if(loc.getBlockY() <= plugin.getPosConfig().getInt("voidTPLocationY")) {
+
             p.teleport(p.getWorld().getSpawnLocation());
+
             p.sendMessage(format(pluginPrefix + "You travelled too far, and have been brought back to spawn."));
         }
     }
