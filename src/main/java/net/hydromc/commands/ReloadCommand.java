@@ -20,10 +20,18 @@ public class ReloadCommand implements CommandExecutor {
 
             if(sender.hasPermission("hhub.admin.reload")) {
 
+                plugin.getLogger().info("Reloading config.yml...");
                 plugin.saveDefaultConfig();
                 plugin.reloadConfig();
                 plugin.getConfig().options().copyDefaults();
                 plugin.saveDefaultConfig();
+                plugin.getLogger().info("Reloaded config.yml!");
+
+                // Pos Config
+                plugin.getLogger().info("Reloading position.yml...");
+                plugin.savePosConfig();
+                plugin.reloadPosConfig();
+                plugin.getLogger().info("Reloaded position.yml!");
 
                 sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded."));
                 return true;

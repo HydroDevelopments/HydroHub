@@ -1,0 +1,14 @@
+# This is where positions are stored.
+# This includes, but is not limited to, /SetSpawn Location, /VoidTeleport location, etc.
+# Spawn Location Defaults To 0, 0, 0 | VoidTP Defaults To 0 (This Is On The Y-Axis, Obviously).
+# Use The PROPER WORKING Commands To Make This An Automatic Process.
+# ALL ARE DISABLED BY DEFAULT TO AVOID UNWANTED SPAWN LOCATION CHANGES AND TO AVOID INACCURATE VOID TP LOCATIONS.
+
+setSpawnEnabled: false
+spawnLocationX: "0"
+spawnLocationY: "0"
+spawnLocationZ: "0"
+
+
+voidTPEnabled: false
+voidTPLocationY: "0"
