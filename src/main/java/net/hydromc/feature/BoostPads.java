@@ -10,6 +10,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
+import java.util.List;
+
 public class BoostPads implements Listener {
     private final HHub plugin;
     public BoostPads(HHub plugin) {
@@ -18,17 +20,23 @@ public class BoostPads implements Listener {
 
     @EventHandler
     public void onWalkOver(PlayerMoveEvent event) {
+
         Player p = event.getPlayer();
-        Vector v = p.getLocation().getDirection();
+        List<String> ignoredWorld = plugin.getConfig().getStringList("boostPadWorlds.ignored");
+        String world = p.getWorld().getName();
 
-        int count = 1;
+        if(!ignoredWorld.contains(world)) {
+            Vector v = p.getLocation().getDirection();
 
-        if(p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK){
-            Vector direction = p.getLocation().getDirection().multiply(4);
-            direction.setY(direction.getY() + 1);
-            p.setVelocity(direction);
+            int count = 1;
 
-            p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 4, 4);
+            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK) {
+                Vector direction = p.getLocation().getDirection().multiply(4);
+                direction.setY(direction.getY() + 1);
+                p.setVelocity(direction);
+
+                p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 4, 4);
+            }
         }
     }
 
