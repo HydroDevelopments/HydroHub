@@ -9,10 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.*;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -85,7 +82,8 @@ public class HubItems implements Listener {
     }
 
     @EventHandler
-    public void onInvClick(InventoryClickEvent e, Player p) {
+    public void onInvClick(InventoryClickEvent e) {
+        Player p = (Player) e.getWhoClicked();
         List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
         String world = p.getWorld().getName();
         if(!ignoredWorld.contains(world) && !p.hasPermission("hhub.admin.items.bypass")) {
@@ -96,7 +94,8 @@ public class HubItems implements Listener {
     }
 
     @EventHandler
-    public void onInvMove(InventoryMoveItemEvent e, Player p) {
+    public void onInvDrag(InventoryDragEvent e) {
+        Player p = (Player) e.getWhoClicked();
         List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
         String world = p.getWorld().getName();
         if(!ignoredWorld.contains(world) && !p.hasPermission("hhub.admin.items.bypass")) {
@@ -107,7 +106,8 @@ public class HubItems implements Listener {
     }
 
     @EventHandler
-    public void onInvMove(InventoryDragEvent e, Player p) {
+    public void onInvInteract(InventoryInteractEvent e) {
+        Player p = (Player) e.getWhoClicked();
         List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
         String world = p.getWorld().getName();
         if(!ignoredWorld.contains(world) && !p.hasPermission("hhub.admin.items.bypass")) {
@@ -118,18 +118,7 @@ public class HubItems implements Listener {
     }
 
     @EventHandler
-    public void onInvMove(InventoryInteractEvent e, Player p) {
-        List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
-        String world = p.getWorld().getName();
-        if(!ignoredWorld.contains(world) && !p.hasPermission("hhub.admin.items.bypass")) {
-            e.setCancelled(true);
-        } else {
-            return;
-        }
-    }
-
-    @EventHandler
-    public void onSpawn(PlayerSpawnLocationEvent e) {
+    public void onWorldChange(PlayerChangedWorldEvent e) {
         List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
         Player p = e.getPlayer();
         String world = p.getWorld().getName();
