@@ -59,6 +59,8 @@ selectorWorlds:
     - 'world_example'
     - 'another_world_example'
 
+# This part is for BOOST PADS!
+
 boostPadWorlds:
   ignored:
     - 'world1'
