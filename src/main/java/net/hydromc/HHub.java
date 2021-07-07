@@ -48,6 +48,8 @@ public final class HHub extends JavaPlugin implements Listener {
 
         this.permission = new Permission("hhub.admin.spawn.set");
 
+        this.permission = new Permission("hhub.admin.items.bypass");
+
 
         // Member Permissions!
         this.permission = new Permission("hhub.member.basic.servers");

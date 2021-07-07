@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 import static net.hydromc.HHub.noPermission;
 import static net.hydromc.HHub.pluginPrefix;
 
@@ -74,8 +76,14 @@ public class ServerSelectorGUI implements CommandExecutor {
                 Player player = (Player) sender;
                 if (player.hasPermission("hhub.member.basic.servers")) {
                     if (cmd.getName().equalsIgnoreCase("servers")) {
-                        sGui.open(player);
-                        return true;
+                        List<String> worldIgnored = plugin.getConfig().getStringList("selectorWorlds.ignored");
+                        String world = player.getWorld().getName();
+                        if(!worldIgnored.contains(world)) {
+                            sGui.open(player);
+                            return true;
+                        } else {
+                            return true;
+                        }
                     }
                 }
             sender.sendMessage(format(noPermission));

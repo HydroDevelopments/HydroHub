@@ -18,15 +18,15 @@ public class VoidTeleport implements Listener {
 
     @EventHandler
     public void onTrigger(PlayerMoveEvent e) {
-        Player p = e.getPlayer();
+        Player player = e.getPlayer();
 
-        Location loc = p.getLocation();
+        Location location = player.getLocation();
 
-        if(loc.getBlockY() <= plugin.getPosConfig().getInt("voidTPLocationY")) {
 
-            p.teleport(p.getWorld().getSpawnLocation());
+        if(location.getBlockY() <= plugin.getPosConfig().getInt("voidTPLocationY")) {
+            player.teleport(player.getWorld().getSpawnLocation());
 
-            p.sendMessage(format(pluginPrefix + "You travelled too far, and have been brought back to spawn."));
+            player.sendMessage(format(pluginPrefix + "You fell too far from the lobby. You have been brought back."));
         }
     }
 
