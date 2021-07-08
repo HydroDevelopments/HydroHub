@@ -22,7 +22,7 @@ public class BoostPads implements Listener {
     public void onWalkOver(PlayerMoveEvent event) {
 
         Player p = event.getPlayer();
-        List<String> ignoredWorld = plugin.getConfig().getStringList("boostPadWorlds.ignored");
+        List<String> ignoredWorld = plugin.getConfig().getStringList("boostPadWorlds.allowed");
         String world = p.getWorld().getName();
 
         if(!ignoredWorld.contains(world)) {
