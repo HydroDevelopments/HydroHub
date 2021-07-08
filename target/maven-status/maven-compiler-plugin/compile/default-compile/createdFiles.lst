@@ -11,6 +11,7 @@ net\hydromc\feature\BoostPads.class
 net\hydromc\feature\MOTDMessage.class
 net\hydromc\commands\SpawnCommand.class
 net\hydromc\feature\ScoreboardA$1.class
+net\hydromc\placeholders\ServerNamePlaceHolder.class
 net\hydromc\commands\SetSpawnCommand.class
 net\hydromc\feature\ScoreboardA.class
 net\hydromc\commands\ReloadCommand.class

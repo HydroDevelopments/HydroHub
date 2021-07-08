@@ -27,10 +27,10 @@ public class ScoreboardA implements Listener {
         disName = PlaceholderAPI.setPlaceholders(player, disName);
 
         String server = format("Server:");
-        server = PlaceholderAPI.setPlaceholders(player, disName);
+        server = PlaceholderAPI.setPlaceholders(player, server);
 
         String serverName = format("%hhub_serverName%");
-        serverName = PlaceholderAPI.setPlaceholders(player, disName);
+        serverName = PlaceholderAPI.setPlaceholders(player, serverName);
 
 
         String space1 = " ";
