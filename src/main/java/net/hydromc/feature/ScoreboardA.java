@@ -26,6 +26,12 @@ public class ScoreboardA implements Listener {
         String disName = format("Name: &e%player_name%");
         disName = PlaceholderAPI.setPlaceholders(player, disName);
 
+        String server = format("Server:");
+        server = PlaceholderAPI.setPlaceholders(player, disName);
+
+        String serverName = format("%hhub_serverName%");
+        serverName = PlaceholderAPI.setPlaceholders(player, disName);
+
 
         String space1 = " ";
         String space2 = "";
@@ -38,13 +44,19 @@ public class ScoreboardA implements Listener {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         Score score1 = objective.getScore(space1);
-        score1.setScore(5);
+        score1.setScore(6);
 
         Score score2 = objective.getScore(disName);
-        score2.setScore(4);
+        score2.setScore(5);
 
         Score score3 = objective.getScore(space2);
-        score3.setScore(3);
+        score3.setScore(4);
+
+        Score score4 = objective.getScore(server);
+        score4.setScore(3);
+
+        Score score5 = objective.getScore(serverName);
+        score5.setScore(2);
 
         String title = format(plugin.getConfig().getString("objTitle"));
         char[] split = Objects.requireNonNull(title).toCharArray();

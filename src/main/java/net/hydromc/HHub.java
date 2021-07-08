@@ -13,6 +13,8 @@ import net.hydromc.gui.ServerSelectorGUI;
 import net.hydromc.onJoin.HubItems;
 import net.hydromc.onJoin.JoinMessage;
 import net.hydromc.onJoin.JoinTitle;
+import net.hydromc.placeholders.ServerNamePlaceHolder;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -96,6 +98,12 @@ public final class HHub extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new VoidTeleport(this), this);
         pluginManager.registerEvents(new SetSpawnCommand(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
+
+        //This registers our Custom PAPI Placeholders.
+
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new ServerNamePlaceHolder().register();
+        }
 
 
         // Config Things.
