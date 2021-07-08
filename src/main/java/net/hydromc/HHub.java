@@ -102,7 +102,7 @@ public final class HHub extends JavaPlugin implements Listener {
         //This registers our Custom PAPI Placeholders.
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
-            new ServerNamePlaceHolder().register();
+            new ServerNamePlaceHolder(this).register();
         }
 
 

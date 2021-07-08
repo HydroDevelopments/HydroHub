@@ -2,13 +2,14 @@ package net.hydromc.placeholders;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.hydromc.HHub;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 public class ServerNamePlaceHolder extends PlaceholderExpansion {
 
     private HHub plugin;
 
-    public void ServerNamePlaceHolder(HHub plugin){
+    public ServerNamePlaceHolder(HHub plugin){
         this.plugin = plugin;
     }
 
@@ -34,7 +35,7 @@ public class ServerNamePlaceHolder extends PlaceholderExpansion {
 
     @Override
     public String getVersion(){
-        return plugin.getDescription().getVersion();
+        return "1.0.0";
     }
 
     @Override
